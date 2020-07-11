@@ -1,0 +1,18 @@
+language: python
+python:
+  - "3.6"
+env:
+  - DJANGO=1.4.1
+services:
+  - postgresql
+before_script:
+  - psql --version
+  - psql -c 'create database travis_ci_test;' -U postgres
+script:
+ - python manage.py test
+notifications:
+  email:
+    recipients:
+      - random@email.com
+    on_success: never
+    on_failure: never
