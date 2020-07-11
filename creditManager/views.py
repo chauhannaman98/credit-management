@@ -11,11 +11,6 @@ def transfer_credit(request):
     return render(request, 'transfer.html', context)
 
 def user(request, name):
-    if request.method == 'POST':
-        recipient = request.POST.get("recipient")
-        credit = request.POST.get("credit")
-        print('Recipient: '+recipient)
-        print('Credit: '+credit)
     users = User.objects.all()
     user = User.objects.filter(name=name).first()
     context = {
@@ -23,3 +18,18 @@ def user(request, name):
         'users': users
         }
     return render(request, 'user.html', context)
+
+def confirmation(request, name):
+    recipient = request.POST.get("recipient")
+    credit = request.POST.get("credit")
+    print('Sender: '+name)
+    print('Recipient: '+recipient)
+    print('Credit: '+credit)
+    users = User.objects.all()
+    context = {
+        'name': name,
+        'recipient': recipient,
+        'credit': credit,
+        'users':users
+    }
+    return render(request, 'confirmation.html', context)
