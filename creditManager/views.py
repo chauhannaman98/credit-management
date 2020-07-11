@@ -9,3 +9,12 @@ def transfer_credit(request):
     users = User.objects.all()
     context = {'users':users}
     return render(request, 'transfer.html', context)
+
+def user(request, name):
+    users = User.objects.all()
+    user = User.objects.filter(name=name).first()
+    context = {
+        'user':user,
+        'users': users
+        }
+    return render(request, 'user.html', context)
