@@ -23,3 +23,11 @@ def user(request, name):
         'users': users
         }
     return render(request, 'user.html', context)
+
+def confirmation(request, name):
+    users = User.objects.all()
+    context = {
+        'name': name,
+        'users':users
+    }
+    return render(request, 'confirmation.html', context)

@@ -25,7 +25,7 @@
             </button>
             <div class="collapse my-2 userform" id="details">
                 <div class="card card-body mx-5">
-                    <form action="/user/{{user.name}}" method="POST">
+                    <form action="/user/{{user.name}}/confirmation" method="POST">
                         {% csrf_token %}
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label text-right">Recipient User<span
