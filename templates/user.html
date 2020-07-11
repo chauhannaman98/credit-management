@@ -31,7 +31,9 @@
                             <select required class="form-control col-sm-8" id="recipient" name="recipient">
                                 <option selected>Select recipient user</option>
                                 {% for usr in users %}
+                                {% ifnotequal usr.name user.name %}
                                 <option>{{usr.name}}</option>
+                                {% endifnotequal %}
                                 {% endfor %}
                             </select>
                         </div>
