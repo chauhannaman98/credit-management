@@ -24,19 +24,23 @@
             </button>
             <div class="collapse my-2 userform" id="details">
                 <div class="card card-body mx-5">
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label text-right">Recipient User:</label>
-                        <select class="form-control col-sm-10" id="exampleFormControlSelect1">
-                            <option selected>Select recipient user</option>
-                            {% for usr in users %}
-                            <option>{{usr.name}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label text-right">Credit(s):</label>
-                        <input type="number" name="credit" id="credit">
-                    </div>
+                    <form action="/user/{{user.name}}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Recipient User<span style="color: red;">*</span>:</label>
+                            <select required class="form-control col-sm-8" id="recipient" name="recipient">
+                                <option selected>Select recipient user</option>
+                                {% for usr in users %}
+                                <option>{{usr.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Credit(s)<span style="color: red;">*</span>:</label>
+                            <input class="col-sm-8" type="number" id="credit" name="credit" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
                 </div>
               </div>
         </div>
