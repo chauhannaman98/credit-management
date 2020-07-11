@@ -18,5 +18,6 @@ from django.urls import path
 from creditManager import views
 
 urlpatterns = [
-    path('', views.home, name='home')
+    path('', views.home, name='home'),
+    path('transfer_credit', views.transfer_credit, name='transfer_credit')
 ]

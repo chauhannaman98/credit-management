@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 creditManager/migrations
 SparksApp/settings/local.py
+.~lock.dummy-data.xls#
