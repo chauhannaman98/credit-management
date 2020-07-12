@@ -24,7 +24,7 @@
                 Transfer Credit
             </button>
             <div class="collapse my-2 userform" id="details">
-                <div class="card card-body mx-5">
+                <div class="card card-body">
                     <form action="/user/{{user.name}}/confirmation" method="POST">
                         {% csrf_token %}
                         <div class="form-group row">
