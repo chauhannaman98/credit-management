@@ -5,8 +5,13 @@
 {% block transferactive %}active{% endblock transferactive %}
 
 {% block body %}
+{% if status %}
 <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
     <strong>Success!</strong> {{credit}} credits have been sent to {{recipient}} from {{name}}
+{% else %}
+<div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+    <strong>Opps!</strong> Cannot send {{credit}} credits as {{name}} doesn't have sufficient credits to send
+{% endif %}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>

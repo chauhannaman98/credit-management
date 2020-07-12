@@ -31,7 +31,7 @@
                             <label class="col-sm-3 col-form-label text-right">Recipient User<span
                                     style="color: red;">*</span>:</label>
                             <select required class="form-control col-sm-8" id="recipient" name="recipient">
-                                <option selected>Select recipient user</option>
+                                <option selected></option>
                                 {% for usr in users %}
                                 {% ifnotequal usr.name user.name %}
                                 <option>{{usr.name}}</option>
